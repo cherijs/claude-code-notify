@@ -14,20 +14,33 @@ Notification sounds for Claude Code. Get audible alerts when Claude needs your a
 
 ## Installation
 
-In Claude Code, run:
+In Claude Code, first add the marketplace:
 
 ```
 /plugin marketplace add https://github.com/AbdelrahmanHafez/claude-code-notify
+```
+
+Then install the plugin:
+
+```
 /plugin install notify@claude-code-notify
 ```
 
-Or use the interactive plugin manager:
+Verify it's working:
 
 ```
-/plugin
+/notify:status
 ```
 
-Then navigate to Marketplaces → Add the URL above → switch to Discover → install the plugin.
+If the command isn't recognized, you may need to restart Claude Code or manually enable the plugin via `/plugin` → Installed tab.
+
+**Alternative:** Use the interactive plugin manager:
+1. Run `/plugin`
+2. Go to Marketplaces
+3. Add `https://github.com/AbdelrahmanHafez/claude-code-notify`
+4. Switch to Discover, search for "notify"
+5. Install the plugin
+6. Make sure the plugin is enabled under the Installed tab
 
 ## Commands
 
