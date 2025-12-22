@@ -1,0 +1,43 @@
+{
+  "name": "notify",
+  "version": "1.0.0",
+  "description": "Notification sounds for Claude Code. Speaks tmux window name/number when in tmux, plays sound otherwise.",
+  "author": {
+    "name": "Hafez"
+  },
+  "repository": "https://github.com/AbdelrahmanHafez/claude-code-notify",
+  "license": "MIT",
+  "keywords": ["notifications", "audio", "tmux", "hooks"],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/notification-sound.sh --init"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/notification-sound.sh"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/notification-sound.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

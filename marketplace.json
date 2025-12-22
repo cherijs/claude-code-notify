@@ -1,0 +1,13 @@
+{
+  "name": "claude-code-notify",
+  "owner": {
+    "name": "Hafez"
+  },
+  "plugins": [
+    {
+      "name": "notify",
+      "description": "Notification sounds for Claude Code. Speaks tmux window name/number when in tmux, plays sound otherwise.",
+      "source": "./"
+    }
+  ]
+}
