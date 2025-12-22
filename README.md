@@ -14,10 +14,20 @@ Notification sounds for Claude Code. Get audible alerts when Claude needs your a
 
 ## Installation
 
-```bash
-claude marketplace add https://raw.githubusercontent.com/AbdelrahmanHafez/claude-code-notify/main/marketplace.json
-claude plugin install notify@claude-code-notify
+In Claude Code, run:
+
 ```
+/plugin marketplace add https://github.com/AbdelrahmanHafez/claude-code-notify
+/plugin install notify@claude-code-notify
+```
+
+Or use the interactive plugin manager:
+
+```
+/plugin
+```
+
+Then navigate to Marketplaces → Add the URL above → switch to Discover → install the plugin.
 
 ## Commands
 
