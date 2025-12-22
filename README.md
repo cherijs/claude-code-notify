@@ -86,6 +86,9 @@ NOTIFY_TMUX_VOICE="Samantha"
 # Speech rate (words per minute)
 NOTIFY_TMUX_SPEECH_RATE=200
 
+# What to announce: "auto", "number", or "name"
+NOTIFY_TMUX_SPEECH_PREFER="auto"
+
 # Pattern for numbered windows ({n} = window number)
 NOTIFY_TMUX_WINDOW_PATTERN="Window {n}"
 
@@ -123,14 +126,25 @@ NOTIFY_TMUX_WINDOW_PATTERN="{n}"
 NOTIFY_TMUX_NAME_PATTERN="{name} ready"
 ```
 
+**Always announce window number (ignore custom names):**
+```bash
+NOTIFY_TMUX_SPEECH_PREFER="number"
+```
+
+**Always announce window name:**
+```bash
+NOTIFY_TMUX_SPEECH_PREFER="name"
+```
+
 ## Tmux Speech Behavior
 
 When `NOTIFY_TMUX_SPEECH="true"`:
 
-| Window Name | What It Says |
-|-------------|--------------|
-| `fish`, `bash`, `zsh`, etc. | Uses `NOTIFY_TMUX_WINDOW_PATTERN` (e.g., "Window 3") |
-| Custom name like `my-project` | Uses `NOTIFY_TMUX_NAME_PATTERN` (e.g., "my-project") |
+| `NOTIFY_TMUX_SPEECH_PREFER` | Behavior |
+|-----------------------------|----------|
+| `"auto"` (default) | Uses number for shell names (`fish`, `bash`, `zsh`, etc.), name otherwise |
+| `"number"` | Always uses `NOTIFY_TMUX_WINDOW_PATTERN` with window number |
+| `"name"` | Always uses `NOTIFY_TMUX_NAME_PATTERN` with window name |
 
 ## Platform Support
 

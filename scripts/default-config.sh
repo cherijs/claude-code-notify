@@ -34,6 +34,12 @@ NOTIFY_TMUX_VOICE="Samantha"
 # Linux spd-say: converted to spd-say rate scale
 NOTIFY_TMUX_SPEECH_RATE=200
 
+# What to announce: "auto", "number", or "name"
+#   auto   - uses number for default shell names (fish, bash, zsh, etc.), name otherwise
+#   number - always use window number
+#   name   - always use window name
+NOTIFY_TMUX_SPEECH_PREFER="auto"
+
 # What to say for numbered windows (use {n} for window number)
 # Examples: "Window {n}", "{n}", "Tab {n}", "Pane {n}"
 NOTIFY_TMUX_WINDOW_PATTERN="{n}"

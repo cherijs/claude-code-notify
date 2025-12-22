@@ -1,6 +1,6 @@
 {
   "name": "notify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Notification sounds for Claude Code. Speaks tmux window name/number when in tmux, plays sound otherwise.",
   "author": {
     "name": "Hafez"

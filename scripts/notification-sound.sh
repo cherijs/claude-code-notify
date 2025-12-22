@@ -76,6 +76,7 @@ NOTIFY_SOUND=""  # Empty = use platform default (Hero.aiff on macOS, etc.)
 NOTIFY_TMUX_SPEECH="false"
 NOTIFY_TMUX_VOICE="Samantha"
 NOTIFY_TMUX_SPEECH_RATE=200
+NOTIFY_TMUX_SPEECH_PREFER="auto"  # "auto", "number", or "name"
 NOTIFY_TMUX_WINDOW_PATTERN="{n}"
 NOTIFY_TMUX_NAME_PATTERN="{name}"
 
@@ -185,19 +186,32 @@ if [[ "$NOTIFY_TMUX_SPEECH" == "true" ]] && [[ -n "${TMUX:-}" ]]; then
     window_name=$(tmux display-message -p '#W' 2>/dev/null || echo "")
   fi
 
-  # Default window names (shells)
-  default_names="fish bash zsh sh tcsh csh ksh dash tmux"
+  # Determine whether to use number or name based on preference
+  use_number=false
+  use_name=false
 
-  is_default=false
-  for name in $default_names; do
-    [[ "$window_name" == "$name" ]] && is_default=true && break
-  done
+  case "$NOTIFY_TMUX_SPEECH_PREFER" in
+    number)
+      use_number=true
+      ;;
+    name)
+      use_name=true
+      ;;
+    *)
+      # Auto mode: use number for default shell names, name otherwise
+      default_names="fish bash zsh sh tcsh csh ksh dash tmux"
+      for name in $default_names; do
+        [[ "$window_name" == "$name" ]] && use_number=true && break
+      done
+      [[ "$use_number" == false ]] && use_name=true
+      ;;
+  esac
 
-  if [[ "$is_default" == true ]] && [[ -n "$window_num" ]]; then
+  if [[ "$use_number" == true ]] && [[ -n "$window_num" ]]; then
     # Use window number pattern
     text="${NOTIFY_TMUX_WINDOW_PATTERN//\{n\}/$window_num}"
     speak "$text"
-  elif [[ -n "$window_name" ]]; then
+  elif [[ "$use_name" == true ]] && [[ -n "$window_name" ]]; then
     # Use window name pattern
     text="${NOTIFY_TMUX_NAME_PATTERN//\{name\}/$window_name}"
     speak "$text"
