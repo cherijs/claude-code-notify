@@ -32,7 +32,7 @@ NOTIFY_TMUX_VOICE="Samantha"
 # macOS: passed to `say -r`
 # Linux espeak: passed to `espeak -s`
 # Linux spd-say: converted to spd-say rate scale
-NOTIFY_TMUX_SPEECH_RATE=200
+NOTIFY_TMUX_SPEECH_RATE=350
 
 # What to announce: "auto", "number", or "name"
 #   auto   - uses number for default shell names (fish, bash, zsh, etc.), name otherwise
