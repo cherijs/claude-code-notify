@@ -28,7 +28,7 @@ NOTIFY_TMUX_SPEECH="false"
 # Windows: run `PowerShell -c "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).GetInstalledVoices() | % { $_.VoiceInfo.Name }"`
 NOTIFY_TMUX_VOICE="Samantha"
 
-# Speech rate (words per minute, default ~200)
+# Speech rate (words per minute, default 350)
 # macOS: passed to `say -r`
 # Linux espeak: passed to `espeak -s`
 # Linux spd-say: converted to spd-say rate scale

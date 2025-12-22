@@ -84,7 +84,7 @@ NOTIFY_TMUX_SPEECH="false"
 NOTIFY_TMUX_VOICE="Samantha"
 
 # Speech rate (words per minute)
-NOTIFY_TMUX_SPEECH_RATE=200
+NOTIFY_TMUX_SPEECH_RATE=350
 
 # What to announce: "auto", "number", or "name"
 NOTIFY_TMUX_SPEECH_PREFER="auto"

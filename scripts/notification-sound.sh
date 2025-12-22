@@ -75,7 +75,7 @@ NOTIFY_ENABLED="true"
 NOTIFY_SOUND=""  # Empty = use platform default (Hero.aiff on macOS, etc.)
 NOTIFY_TMUX_SPEECH="false"
 NOTIFY_TMUX_VOICE="Samantha"
-NOTIFY_TMUX_SPEECH_RATE=200
+NOTIFY_TMUX_SPEECH_RATE=350
 NOTIFY_TMUX_SPEECH_PREFER="auto"  # "auto", "number", or "name"
 NOTIFY_TMUX_WINDOW_PATTERN="{n}"
 NOTIFY_TMUX_NAME_PATTERN="{name}"
