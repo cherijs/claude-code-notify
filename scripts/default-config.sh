@@ -17,7 +17,7 @@ NOTIFY_ENABLED="true"
 NOTIFY_SOUND=""
 
 # Tmux speech settings (cross-platform)
-# When enabled in tmux, speaks the window name/number after playing sound
+# When enabled in tmux, speaks the window name/number instead of playing sound
 # Requires: macOS (say), Linux (espeak or spd-say), Windows (PowerShell)
 NOTIFY_TMUX_SPEECH="false"
 
@@ -36,7 +36,7 @@ NOTIFY_TMUX_SPEECH_RATE=200
 
 # What to say for numbered windows (use {n} for window number)
 # Examples: "Window {n}", "{n}", "Tab {n}", "Pane {n}"
-NOTIFY_TMUX_WINDOW_PATTERN="Window {n}"
+NOTIFY_TMUX_WINDOW_PATTERN="{n}"
 
 # What to say for named windows (use {name} for window name)
 # Examples: "{name}", "Window {name}", "{name} ready"

@@ -76,7 +76,7 @@ NOTIFY_SOUND=""  # Empty = use platform default (Hero.aiff on macOS, etc.)
 NOTIFY_TMUX_SPEECH="false"
 NOTIFY_TMUX_VOICE="Samantha"
 NOTIFY_TMUX_SPEECH_RATE=200
-NOTIFY_TMUX_WINDOW_PATTERN="Window {n}"
+NOTIFY_TMUX_WINDOW_PATTERN="{n}"
 NOTIFY_TMUX_NAME_PATTERN="{name}"
 
 # Load config if exists
@@ -172,10 +172,8 @@ speak() {
 }
 
 # Main logic
-play_sound
-
-# Optional: tmux window speech (opt-in)
 if [[ "$NOTIFY_TMUX_SPEECH" == "true" ]] && [[ -n "${TMUX:-}" ]]; then
+  # Tmux speech mode: speak window info instead of playing sound
   # Use TMUX_PANE to get window info for the pane where Claude started,
   # not the currently selected window
   pane_target="${TMUX_PANE:-}"
@@ -204,6 +202,9 @@ if [[ "$NOTIFY_TMUX_SPEECH" == "true" ]] && [[ -n "${TMUX:-}" ]]; then
     text="${NOTIFY_TMUX_NAME_PATTERN//\{name\}/$window_name}"
     speak "$text"
   fi
+else
+  # Normal mode: play sound
+  play_sound
 fi
 
 exit 0
