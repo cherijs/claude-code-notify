@@ -5,7 +5,7 @@
   "author": {
     "name": "Hafez"
   },
-  "repository": "https://github.com/AbdelrahmanHafez/claude-code-notify",
+  "repository": "https://github.com/cherijs/claude-code-notify",
   "license": "MIT",
   "keywords": ["notifications", "audio", "tmux", "hooks"],
   "hooks": {
